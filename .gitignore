@@ -1,0 +1,6 @@
+# Remove build directory
+/build
+
+# Ignore presentation style option
+styles/presentation_style.sty
+

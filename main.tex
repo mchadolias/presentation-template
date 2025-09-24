@@ -1,0 +1,26 @@
+\documentclass{beamer}
+
+% Load style (configured via Makefile/scripts)
+\usepackage{\jobname_style}
+
+% Load only essential packages
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{physics}  % for bra-ket notation
+
+% Presentation metadata
+\include{presentation-info}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% Include content
+\input{content/intro}
+
+\end{document}
