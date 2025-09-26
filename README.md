@@ -1,5 +1,7 @@
 # LaTeX Beamer Presentation Template 🎓⚛️
 
+![LaTeX](https://img.shields.io/badge/LaTeX-Professional-blue.svg)  ![Beamer](https://img.shields.io/badge/Beamer-Presentations-green.svg)
+
 A modern, modular LaTeX Beamer template designed specifically for physics presentations with a prefrence in particle physics. Features two distinct styles (classic academic and modern clean) with easy configuration and automation.
 
 ## 📁 Project Structure

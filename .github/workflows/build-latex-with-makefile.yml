@@ -1,0 +1,42 @@
+name: Build LaTeX Presentation
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install LaTeX (texlive + extras)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            texlive-latex-base \
+            texlive-latex-extra \
+            texlive-fonts-recommended \
+            texlive-fonts-extra \
+            texlive-science \
+            texlive-pictures \
+            texlive-bibtex-extra \
+            texlive-lang-european \
+            latexmk \
+            lmodern \
+            cm-super \
+            python3-pygments # for minted
+
+      - name: Build presentation
+        run: make all
+
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: presentation-pdf
+          path: build/main.pdf
