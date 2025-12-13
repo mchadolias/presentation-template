@@ -21,7 +21,7 @@ jobs:
         if: env.ACT != 'true'
         uses: TeX-Live/setup-texlive-action@v3
         with:
-          package-file: .github/tl_packages.txt
+          package-file: .github/tl_package.txt
 
       # --------------------------------------------------
       # TeX Live setup (local testing via act)
