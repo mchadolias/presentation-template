@@ -1,0 +1,54 @@
+name: LaTeX Template Tests
+
+on:
+  push:
+    branches:
+      - "**"
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # --------------------------------------------------
+      # TeX Live setup (GitHub runners)
+      # --------------------------------------------------
+      - name: Install TeX Live (GitHub runner)
+        if: env.ACT != 'true'
+        uses: TeX-Live/setup-texlive-action@v3
+        with:
+          package-file: .github/tl_packages.txt
+
+      # --------------------------------------------------
+      # TeX Live setup (local testing via act)
+      # --------------------------------------------------
+      - name: Install TeX Live (act fallback)
+        if: env.ACT == 'true'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            texlive-latex-base \
+            texlive-latex-extra \
+            texlive-fonts-recommended \
+            texlive-science \
+            texlive-pictures \
+            python3-pygments
+
+      # --------------------------------------------------
+      # Pygments (needed for minted)
+      # --------------------------------------------------
+      - name: Install Pygments (required for minted)
+        if: env.ACT != 'true'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3-pygments
+
+      # --------------------------------------------------
+      # Build checks
+      # --------------------------------------------------
+      - name: Build example presentation
+        run: make example
