@@ -1,0 +1,45 @@
+name: Publish Presentation
+
+on:
+  push:
+    branches:
+      - "conference/**"
+      - "workshop/**"
+    tags:
+      - "v*"
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup TeX Live
+        uses: TeX-Live/setup-texlive-action@v3
+        with:
+          package-file: |
+            .github/tl_packages.txt
+
+      - name: Install Pygments (required for minted)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3-pygments
+
+      - name: Build presentation (default target)
+        run: make
+
+      - name: Derive artifact name from branch OR tag
+        id: vars
+        run: |
+          REF_NAME="${GITHUB_REF#refs/*/}"
+          SAFE_NAME=$(echo "$REF_NAME" | tr '/' '-')
+          echo "name=$SAFE_NAME" >> "$GITHUB_OUTPUT"
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: presentation-${{ steps.vars.outputs.name }}
+          path: build/*.pdf
+          retention-days: 60

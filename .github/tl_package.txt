@@ -1,0 +1,42 @@
+# Base scheme
+scheme-small
+
+# Core LaTeX + utilities
+latex-bin
+latexextra
+tools
+
+# Fonts & typography
+fontsrecommended
+microtype
+lmodern
+
+# Graphics & plots
+graphics
+pgf
+pgfplots
+tikz
+caption
+subcaption
+
+# Tables
+booktabs
+multirow
+
+# Math & physics
+amsmath
+amsfonts
+amssymb
+physics
+siunitx
+
+# Particle physics
+hepnames
+hepunits
+slashed
+
+# Hyperlinks
+hyperref
+
+# Code listings
+minted
