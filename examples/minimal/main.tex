@@ -1,0 +1,89 @@
+\documentclass{beamer}
+
+% Load style (configured via Makefile/scripts)
+\usepackage{\jobname_style}
+
+% Load template preamble (shared, not duplicated)
+\include{../../00-preamble}
+
+% Presentation metadata (example-specific, humorous)
+\include{presentation-info}
+
+\begin{document}
+
+% ------------------------------------------------------------------
+% Title slide
+% ------------------------------------------------------------------
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% ------------------------------------------------------------------
+% Introduction
+% ------------------------------------------------------------------
+\section{Introduction}
+
+\begin{frame}{Motivation}
+    \begin{itemize}
+        \item Astrology has long resisted experimental verification
+        \item Nevertheless, it continues to make strong predictions
+        \item We present its \emph{ten most important results}
+    \end{itemize}
+\end{frame}
+
+% ------------------------------------------------------------------
+% Math / Physics examples
+% ------------------------------------------------------------------
+\section{Theoretical Framework}
+
+\begin{frame}{Fundamental Assumption}
+    The dynamics of celestial influence are governed by
+    \[
+        \mathcal{F} \propto \frac{\text{Mercury in retrograde}}{\text{Peer review}}
+    \]
+\end{frame}
+
+\begin{frame}{Equation of Motion}
+    Assuming natural units ($c = \hbar = 1$), the horoscope field
+    $\phi_{\mathrm{astro}}$ satisfies
+    \[
+        \Box \phi_{\mathrm{astro}} + m_{\star}^2 \phi_{\mathrm{astro}}
+        = \lambda\, \cos(\theta_{\mathrm{zodiac}})
+    \]
+\end{frame}
+
+\begin{frame}{Dimensional Analysis}
+    The prediction strength scales as
+    \[
+        P \sim \mathcal{O}(1)\times \left(\frac{\text{confidence}}{\text{evidence}}\right)^n,
+        \qquad n \gg 1
+    \]
+\end{frame}
+
+% ------------------------------------------------------------------
+% Physics-style slide
+% ------------------------------------------------------------------
+\section{Results}
+
+\begin{frame}{Experimental Validation}
+    \begin{itemize}
+        \item Dataset size: $N = 0$
+        \item Statistical significance: $5\sigma$ (by convention)
+        \item Systematic uncertainties: neglected
+    \end{itemize}
+\end{frame}
+
+% ------------------------------------------------------------------
+% Closing slide
+% ------------------------------------------------------------------
+\section{Conclusion}
+
+\begin{frame}{Summary}
+    \begin{itemize}
+        \item Demonstrated mathematical typesetting
+        \item Illustrated physics-style notation
+        \item No actual astrology was harmed in this example
+    \end{itemize}
+\end{frame}
+
+\end{document}
